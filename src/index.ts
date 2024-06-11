@@ -33,7 +33,7 @@ export async function getCategory<T extends PostAttribute>(
 export async function getCategory(
   category: string[],
   what: 'relatedTags',
-): Promise<[name: string, score: number][]>;
+): Promise<[tag: string, score: number][]>;
 export async function getCategory(
   category: string[],
   what: 'sub',
@@ -58,11 +58,11 @@ export async function getTag<T extends PostAttribute>(
 export async function getTag(
   tag: string,
   what: 'relatedTags',
-): Promise<[string, number][]>;
+): Promise<[tag: string, score: number][]>;
 export async function getTag(
   tag: string,
   what: 'relatedCategories',
-): Promise<[string[], number][]>;
+): Promise<[category: string[], score: number][]>;
 export async function getTag(tag: string, what: string): Promise<unknown> {
   return (await fetch(`/api/tag/${tag}/${what}.json`)).json();
 }
