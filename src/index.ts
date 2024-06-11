@@ -1,7 +1,7 @@
 export type HierarchyNode = readonly [name: string, value: HierarchyValue];
 
 export type HierarchyValue =
-  | { type: 'post' }
+  | { type: 'post'; title: string }
   | { type: 'category'; sub?: HierarchyNode[] };
 
 export interface Hierarchy {
