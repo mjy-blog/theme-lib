@@ -70,6 +70,7 @@ export async function getTag(tag: string, what: string): Promise<unknown> {
 }
 
 export interface PostPageProps<T extends PostAttribute> {
+  hierarchy: Hierarchy;
   attributes: T;
   MDXContent: ComponentType;
   slug: string;
