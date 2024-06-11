@@ -1,3 +1,5 @@
+import { ComponentType } from 'react';
+
 export type HierarchyNode = readonly [name: string, value: HierarchyValue];
 
 export type HierarchyValue =
@@ -65,4 +67,25 @@ export async function getTag(
 ): Promise<[category: string[], score: number][]>;
 export async function getTag(tag: string, what: string): Promise<unknown> {
   return (await fetch(`/api/tag/${tag}/${what}.json`)).json();
+}
+
+export interface PostPageProps<T extends PostAttribute> {
+  attributes: T;
+  MDXContent: ComponentType;
+  slug: string;
+}
+
+export interface CategoryPageProps<T extends PostAttribute> {
+  category: string[];
+  hierarchy: Hierarchy;
+  sub: CategorySubNode[];
+  relatedTags: [tag: string, score: number][];
+  posts: Post<T>[];
+}
+
+export interface TagPageProps<T extends PostAttribute> {
+  tag: string;
+  relatedCategories: [category: string[], score: number][];
+  relatedTags: [tag: string, score: number][];
+  posts: Post<T>[];
 }
