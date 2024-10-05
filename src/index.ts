@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { ReactElement } from 'react';
 
 export type HierarchyNode = readonly [name: string, value: HierarchyValue];
 
@@ -85,7 +85,7 @@ export interface TocItem {
 export interface PostPageProps<T extends PostAttribute> {
   hierarchy: Hierarchy;
   attributes: T;
-  MDXContent: ComponentType;
+  MDXContent: ReactElement;
   slug: string;
   tocItems: TocItem[];
 }
