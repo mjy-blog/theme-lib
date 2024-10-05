@@ -69,6 +69,13 @@ export async function getTag(tag: string, what: string): Promise<unknown> {
   return (await fetch(`/api/tag/${tag}/${what}.json`)).json();
 }
 
+export interface MainPageProps<T extends PostAttribute> {
+  hierarchy: Hierarchy;
+  recentPosts: Post<T>[];
+  recentCategories: string[][];
+  recentTags: string[];
+}
+
 export interface TocItem {
   id: string;
   title: string;
