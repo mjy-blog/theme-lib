@@ -72,6 +72,7 @@ export async function getTag(tag: string, what: string): Promise<unknown> {
 export interface TocItem {
   id: string;
   title: string;
+  level: number;
 }
 
 export interface PostPageProps<T extends PostAttribute> {
