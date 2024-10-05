@@ -93,6 +93,7 @@ export interface PostPageProps<T extends PostAttribute> {
 export interface CategoryPageProps<T extends PostAttribute> {
   category: string[];
   hierarchy: Hierarchy;
+  recentPosts: Post<T>[];
   sub: CategorySubNode[];
   relatedTags: [tag: string, score: number][];
   posts: Post<T>[];
@@ -100,6 +101,7 @@ export interface CategoryPageProps<T extends PostAttribute> {
 
 export interface TagPageProps<T extends PostAttribute> {
   tag: string;
+  recentPosts: Post<T>[];
   relatedCategories: [category: string[], score: number][];
   relatedTags: [tag: string, score: number][];
   posts: Post<T>[];
